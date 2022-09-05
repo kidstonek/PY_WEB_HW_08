@@ -77,21 +77,21 @@ if __name__ == "__main__":
 #             print("Filed to connect to database")
     #
     # sql_insert_table = "INSERT INTO s_groups(group_id, group_name) VALUES(%s, %s)"
-    # sql_insert_table = "INSERT INTO students(id, student_name, s_group_id) VALUES(%s, %s, %s)"
+    sql_insert_table = "INSERT INTO students(id, student_name, s_group_id) VALUES(%s, %s, %s)"
     # sql_insert_table = "INSERT INTO teachers(id, teacher_name, subj_id) VALUES(%s, %s)"
     # sql_insert_table = "INSERT INTO subjects(g_id, student_id, sub_id, grade) VALUES(%s, %s, %s, %s)"
-    sql_insert_table = "INSERT INTO grades(student_id, sub_id, grade) VALUES(%s, %s, %s)"
+    # sql_insert_table = "INSERT INTO grades(student_id, sub_id, grade) VALUES(%s, %s, %s)"
 
     # # gp = ['Фин-01', "ПЗ-04", "ИЛ-05", "ФІН-21"]
     # # Add students
-    # with create_connection() as conn:
-    #     if conn is not None:
-    #         cr = conn.cursor()
-    #         for i in range(30):
-    #             cr.execute(sql_insert_table, (i+1, fake.name(), randint(0, 2)))
-    #         cr.close()
-    #     else:
-    #         print("Filed to connect to database")
+    with create_connection() as conn:
+        if conn is not None:
+            cr = conn.cursor()
+            for i in range(30):
+                cr.execute(sql_insert_table, (i+1, fake.name(), randint(0, 2)))
+            cr.close()
+        else:
+            print("Filed to connect to database")
 
     # add teachers
     # with create_connection() as conn:
@@ -115,12 +115,12 @@ if __name__ == "__main__":
     #         print("Filed to connect to database")
 
     # add grades
-    with create_connection() as conn:
-        if conn is not None:
-            cr = conn.cursor()
-            for stud in range(30):
-                for sub in range(5):
-                    cr.execute(sql_insert_table, (stud+1, sub+1, randint(1, 12)))
-            cr.close()
-        else:
-            print("Filed to connect to database")
+    # with create_connection() as conn:
+    #     if conn is not None:
+    #         cr = conn.cursor()
+    #         for stud in range(30):
+    #             for sub in range(20):
+    #                 cr.execute(sql_insert_table, (stud+1, randint(1, 5), randint(1, 12)))
+    #         cr.close()
+    #     else:
+    #         print("Filed to connect to database")
